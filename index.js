@@ -60,6 +60,22 @@ mf.comp.BtnInput = class extends Input {
     }
     
     /**
+     * button click event
+     * 
+     * @param (function) click event function
+     * @param (mixed) function parameter
+     * @return (array) [[function, parameter], ...]
+     * @return (null) not set
+     * @type parameter
+     */
+    clickEvent (func, prm) {
+        try { return this.button().clickEvent(func,prm); } catch (e) {
+            console.error(e.stack);
+            throw e;
+        }
+    }
+    
+    /**
      * button text contents
      *
      * @param (string) button text contents

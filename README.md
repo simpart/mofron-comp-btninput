@@ -24,6 +24,8 @@ npm install mofron mofron-comp-btninput
 |Simple<br>Param | Parameter Name | Type | Description |
 |:--------------:|:---------------|:-----|:------------|
 | | button | mofron-comp-button | button component |
+| | clickEvent | function | click event function |
+| | | mixed | function parameter |
 | ◯  | btnText | string | button text contents |
 | | height | string (size) | height size |
 
