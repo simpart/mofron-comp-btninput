@@ -1,0 +1,26 @@
+{
+  "name": "mofron-comp-btninput",
+  "version": "0.0.1",
+  "description": "button input component for mofron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simpart/mofron-comp-btninput.git"
+  },
+  "dependencies" : {
+    "mofron-comp-input" : "",
+    "mofron-comp-button" : ""
+  },
+  "keywords": [
+    "front-end"
+  ],
+  "author": "simparts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simpart/mofron-comp-btninput/issues"
+  },
+  "homepage": "https://github.com/simpart/mofron-comp-btninput#readme"
+}

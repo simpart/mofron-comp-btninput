@@ -1,0 +1,5 @@
+<require>
+    <tag module="mofron-comp-btninput">BtnInput</tag>
+</require>
+
+<BtnInput>Search</BtnInput>
