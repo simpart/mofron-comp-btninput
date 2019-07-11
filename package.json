@@ -1,6 +1,6 @@
 {
   "name": "mofron-comp-btninput",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "button input component for mofron",
   "main": "index.js",
   "scripts": {

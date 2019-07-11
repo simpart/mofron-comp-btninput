@@ -14,15 +14,15 @@ mf.comp.BtnInput = class extends Input {
      * 
      * @param (string/object) string: "btnText" parameter
      *                        object: component option
-     * @pmap btnText
+     * @pmap btnText,clickEvent
      * @type private
      */
-    constructor (po) {
+    constructor (po,p2) {
         try {
             super();
             this.name("BtnInput");
-            this.prmMap("btnText");
-            this.prmOpt(po);
+            this.prmMap(["btnText", "clickEvent"]);
+            this.prmOpt(po,p2);
         } catch (e) {
             console.error(e.stack);
             throw e;
