@@ -4,25 +4,28 @@
  *        input with button component
  * @author simpart
  */
-const mf = require("mofron");
 const Input = require("mofron-comp-input");
 const Button = require("mofron-comp-button");
+const comutl = mofron.util.common;
 
-mf.comp.BtnInput = class extends Input {
+module.exports = class extends mofron.class.Component {
     /**
      * initialize component
      * 
-     * @param (string/object) string: "btnText" parameter
+     * @param (string/object) string: "bText" parameter
      *                        object: component option
-     * @pmap btnText,clickEvent
+     * @short bText,clickEvent
      * @type private
      */
     constructor (po,p2) {
         try {
             super();
-            this.name("BtnInput");
-            this.prmMap(["btnText", "clickEvent"]);
-            this.prmOpt(po,p2);
+            this.modname("BtnInput");
+            this.shortForm("bText", "clickEvent");
+            
+            if (0 < arguments.length) {
+                this.config(po,p2);
+            }
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -37,8 +40,12 @@ mf.comp.BtnInput = class extends Input {
     initDomConts () {
         try {
             super.initDomConts();
-            this.target().parent().style({ 'display': 'flex' });
-            this.child(this.button());
+            this.style({
+	        'display':'flex',
+            });
+            this.child([
+	        this.input(),this.button()
+            ]);
         } catch (e) {
             console.error(e.stack);
             throw e;
@@ -53,10 +60,28 @@ mf.comp.BtnInput = class extends Input {
      * @type parameter
      */
     button (prm) {
-        try { return this.innerComp("button", prm, Button); } catch (e) {
+        try {
+	    return this.innerComp("button", prm, Button);
+	} catch (e) {
             console.error(e.stack);
             throw e;
         }
+    }
+    
+    /**
+     * input component setter/getter
+     * 
+     * @param (mofron-comp-input) input component
+     * @return (mofron-comp-input) input component
+     * @type parameter
+     */
+    input (prm) {
+        try {
+            return this.innerComp("input", prm, Input);
+	} catch (e) {
+            console.error(e.stack);
+            throw e;
+	}
     }
     
     /**
@@ -69,10 +94,30 @@ mf.comp.BtnInput = class extends Input {
      * @type parameter
      */
     clickEvent (func, prm) {
-        try { return this.button().clickEvent(func,prm); } catch (e) {
+        try {
+	    return this.button().clickEvent(func,prm);
+	} catch (e) {
             console.error(e.stack);
             throw e;
         }
+    }
+    
+    /**
+     * text contents
+     * 
+     * @param (string) input text contents
+     * @param (string) button text contents
+     * @return (string) input text contents
+     * @type parameter
+     */
+    text (p1,p2) {
+        try {
+            this.bText(p2);
+	    return this.input().text(p1);
+	} catch (e) {
+            console.error(e.stack);
+            throw e;
+	}
     }
     
     /**
@@ -82,8 +127,10 @@ mf.comp.BtnInput = class extends Input {
      * @reutnr (string) button text contents
      * @type parameter
      */
-    btnText (prm) {
-        try { return this.button().text(prm); } catch (e) {
+    bText (prm) {
+        try {
+	    return this.button().text(prm);
+	} catch (e) {
             console.error(e.stack);
             throw e;
         }
@@ -98,19 +145,12 @@ mf.comp.BtnInput = class extends Input {
      */
     height (prm) {
         try {
-            if (undefined !== prm) {
-                try {
-                    this.button().height(mf.func.sizeSum(prm, "0.06rem"));
-                } catch (e) {
-                    this.button().height(prm);
-                }
-            }
-            return super.height(prm);
+            this.child()[0].height(prm);
+	    return this.child()[1].height(comutl.sizediff(prm,"0.01rem"));
         } catch (e) {
             console.error(e.stack);
             throw e;
         }
     }
 }
-module.exports = mf.comp.BtnInput;
 /* end of file */
